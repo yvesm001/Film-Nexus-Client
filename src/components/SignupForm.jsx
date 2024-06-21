@@ -7,21 +7,39 @@ export default function SignupForm() {
     email: "",
     username: "",
     password: "",
+    repeatPassword: "",
   });
+
+  const [passwordsMatch, setPasswordsMatch] = useState(true);
 
   const { signup } = useContext(AuthContext);
 
   const handleChange = (e) => {
-    setSignupInfo((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    setSignupInfo((prev) => {
+      const newSignupInfo = { ...prev, [name]: value };
+
+      // Check if passwords match
+      if (name === "password" || name === "repeatPassword") {
+        setPasswordsMatch(
+          newSignupInfo.password === newSignupInfo.repeatPassword
+        );
+      }
+
+      return newSignupInfo;
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!passwordsMatch) {
+      return;
+    }
+    signup(signupInfo);
   };
 
   return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        signup(signupInfo);
-      }}
-    >
+    <form onSubmit={handleSubmit}>
       <label htmlFor="email">email</label>
       <input
         type="email"
@@ -45,6 +63,17 @@ export default function SignupForm() {
         value={signupInfo.password}
         onChange={handleChange}
       />
+
+      <label htmlFor="repeatPassword">repeat password</label>
+      <input
+        type="password"
+        name="repeatPassword"
+        value={signupInfo.repeatPassword}
+        onChange={handleChange}
+      />
+
+      {!passwordsMatch && <p>Passwords do not match</p>}
+
       <button type="submit">sign up</button>
     </form>
   );
