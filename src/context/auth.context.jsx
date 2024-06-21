@@ -12,7 +12,7 @@ function AuthProvider({ children }) {
   const login = async (body) => {
     try {
       let response;
-      
+
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
       if (emailRegex.test(body.loginInfo)) {
@@ -69,12 +69,18 @@ function AuthProvider({ children }) {
     }
   };
 
+  const logout = () => {
+    setUser(null);
+    setLoggedIn(false);
+    localStorage.clear();
+  };
+
   useEffect(() => {
     verify();
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, login, signup, loggedIn }}>
+    <AuthContext.Provider value={{ user, login, signup, loggedIn, logout }}>
       {children}
     </AuthContext.Provider>
   );
