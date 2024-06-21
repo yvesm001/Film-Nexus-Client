@@ -11,7 +11,21 @@ function AuthProvider({ children }) {
 
   const login = async (body) => {
     try {
-      const response = await api.post("user/login", body);
+      let response;
+      
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+      if (emailRegex.test(body.loginInfo)) {
+        response = await api.post("/user/login", {
+          password: body.password,
+          email: body.loginInfo,
+        });
+      } else {
+        response = await api.post("/user/login", {
+          password: body.password,
+          username: body.loginInfo,
+        });
+      }
 
       if (response.status === 201 || response.status === 200) {
         setUser(response.data.user);
