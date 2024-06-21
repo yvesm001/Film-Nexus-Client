@@ -1,11 +1,11 @@
-import React from 'react'
-import MovieList from '../components/MovieList'
+import React from "react";
+import MovieList from "../components/MovieList";
 
 export default function Homepage() {
   return (
     <div>
-    Homepage
+      Homepage
       <MovieList />
     </div>
-  )
+  );
 }
