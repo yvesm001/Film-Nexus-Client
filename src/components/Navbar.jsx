@@ -1,8 +1,11 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import Logo from "../assets/NexsusLogo.png";
+import { Link, NavLink } from "react-router-dom";
+import Logo from "../assets/NexsusLogo.png"
+import { useContext } from "react";
+import { AuthContext } from "../context/auth.context";
 
 function Navbar() {
+  const { user, logout } = useContext(AuthContext);
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -64,6 +67,17 @@ function Navbar() {
               <button className="btn btn-outline-success" type="submit">
                 Search
               </button>
+
+
+{user ? (<button onClick={logout} className="btn btn-outline-success">Logout</button>) : (
+  <><Link to="/login" className="btn btn-outline-success">
+                Login
+              </Link>
+              <Link to="/signup" className="btn btn-outline-success">
+                Signup
+              </Link>
+              </>)}
+              
             </form>
           </div>
         </div>
