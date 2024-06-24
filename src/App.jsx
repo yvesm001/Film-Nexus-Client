@@ -4,6 +4,7 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import MovieDetails from "./pages/MovieDetails";
+import CreateMoviePage from "./pages/CreateMoviePage";
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/movies/:movieId" element ={<MovieDetails />} />
+
+        <Route path="/movie/create" element={<CreateMoviePage />} />
+        
       </Routes>
     </div>
   );
