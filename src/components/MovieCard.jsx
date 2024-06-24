@@ -1,12 +1,31 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
 
-export default function MovieCard({ title, description, releaseYear, genre, cast, posterImg, backdropImg, rating, trailerUrl, popularity}) {
+export default function MovieCard({
+  title,
+  description,
+  releaseYear,
+  genre,
+  cast,
+  posterImg,
+  backdropImg,
+  rating,
+  trailerUrl,
+  popularity,
+}) {
   return (
-    <div>
-      <h1>{title}</h1>
-      <img src={posterImg} />
-      <p>{releaseYear}</p>
-      <p>{description}</p>
+    <div className="movieCard">
+      <div className="card" style={{ width: "18rem" }}>
+        <img src={posterImg} className="card-img-top" alt="Movie Poster" />
+        <div className="card-body">
+          <h5 className="card-title">{title}</h5>
+          <p className="card-text">Relese Year: {releaseYear}</p>
+          <p>Sinopsis: {description}</p>
+          <Link to="/details" className="btn btn-primary">
+            Details
+          </Link>
+        </div>
+      </div>
     </div>
-  )
+  );
 }
