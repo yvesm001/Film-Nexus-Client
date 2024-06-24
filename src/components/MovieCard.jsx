@@ -22,7 +22,10 @@ export default function MovieCard({
           <h5 className="card-title">{title}</h5>
           <p className="card-text">Relese Year: {releaseYear}</p>
           <p>Sinopsis: {description}</p>
+
+
           <Link to={`/movies/${_id}`} className="btn btn-primary">
+
             Details
           </Link>
         </div>
