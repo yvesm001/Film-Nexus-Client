@@ -12,6 +12,7 @@ import MyListPage from "./pages/MyListPage";
 import MovieDetails from "./pages/MovieDetails";
 import CreateMoviePage from "./pages/CreateMoviePage";
 
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -26,11 +27,9 @@ function App() {
         <Route path="/favorite" element={<FavoritePage />} />
         <Route path="/watched" element={<WatchedPage />} />
 
-        <Route path="/movies/:movieId" element ={<MovieDetails />} />
+        <Route path="/movies/:movieId" element={<MovieDetails />} />
 
         <Route path="/movie/create" element={<CreateMoviePage />} />
-        
-
       </Routes>
     </div>
   );

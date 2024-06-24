@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+
 
 export default function MovieCard({
   _id,
@@ -14,6 +15,8 @@ export default function MovieCard({
   trailerUrl,
   popularity,
 }) {
+
+ 
   return (
     <div className="movieCard">
       <div className="card" style={{ width: "18rem" }}>
