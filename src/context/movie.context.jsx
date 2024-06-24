@@ -36,6 +36,22 @@ function MovieProvider({ children }) {
     }
   };
 
+  const updateMovie = async (body, id, toggle) => {
+    try {
+      const response = await api.put("/movie/" + id, body);
+      if (response.status === 200 || response.status === 201) {
+        toast.success(
+          (response.data.updated.name = " was updated successfully")
+        );
+        getAllMovies();
+        toggle(false);
+      }
+    } catch (error) {
+      toast.error("Error updating this movie");
+      console.log(error);
+    }
+  };
+
   const deleteMovie = async (id) => {
     try {
       const check = confirm("Delete this movie?");
@@ -54,7 +70,9 @@ function MovieProvider({ children }) {
   };
 
   return (
-    <MovieContext.Provider value={{ movies, createMovie, deleteMovie }}>
+    <MovieContext.Provider
+      value={{ movies, createMovie, updateMovie, deleteMovie, getAllMovies }}
+    >
       {children}
     </MovieContext.Provider>
   );
