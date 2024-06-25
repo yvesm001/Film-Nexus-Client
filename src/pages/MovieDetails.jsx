@@ -5,6 +5,7 @@ import MovieDetailsCard from "../components/MovieDetailsCard";
 import { AuthContext } from "../context/auth.context";
 import ReviewCard from "../components/ReviewCard";
 import ReviewForm from "../components/ReviewForm";
+import { Link } from "react-router-dom";
 
 export default function MovieDetails() {
   const [movie, setMovie] = useState(null);
@@ -20,8 +21,12 @@ export default function MovieDetails() {
     <div>
       <h1>Movie Details</h1>
       {movie ? <MovieDetailsCard movie={movie} /> : <p>Loading...</p>}
-      <ReviewForm />
-      { movie && movie.reviews.length ? (movie.reviews.map((review) => <ReviewCard review={review} />)
+      {!user || user.isAdmin ? (<p><Link to="/login">Login</Link> to leave a review.</p>): (<ReviewForm />)}
+      
+      {movie && movie.reviews.length ? (
+        movie.reviews.map((review) => (
+          <ReviewCard key={review._id} review={review} />
+        ))
       ) : (
         <p>No reviews yet</p>
       )}

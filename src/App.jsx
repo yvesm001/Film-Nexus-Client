@@ -5,14 +5,14 @@ import SignupPage from "./pages/SignupPage";
 import Homepage from "./pages/Homepage";
 
 import Navbar from "./components/Navbar";
-import FavoritePage from "./pages/FavoritePage";
-import WatchedPage from "./pages/WatchedPage";
+import FavoritesPage from "./pages/FavoritesPage"
 import MyListPage from "./pages/MyListPage";
 
 import MovieDetails from "./pages/MovieDetails";
 import CreateMoviePage from "./pages/CreateMoviePage";
 
 import { Toaster } from "react-hot-toast";
+import WatchlistPage from "./pages/WatchlistPage";
 
 function App() {
   return (
@@ -24,8 +24,8 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
 
         <Route path="/mylist" element={<MyListPage />} />
-        <Route path="/favorite" element={<FavoritePage />} />
-        <Route path="/watched" element={<WatchedPage />} />
+        <Route path="/favorites" element={<FavoritesPage />} />
+        <Route path="/watchlist" element={<WatchlistPage />} />
 
         <Route path="/movies/:movieId" element={<MovieDetails />} />
 
