@@ -33,7 +33,7 @@ function Navbar() {
               <li className="nav-item dropdown">
                 <NavLink
                   className="nav-link dropdown-toggle"
-                  href="#"
+                  to="#"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
@@ -42,13 +42,13 @@ function Navbar() {
                 </NavLink>
                 <ul className="dropdown-menu">
                   <li>
-                    <NavLink className="dropdown-item" to="favorite">
+                    <NavLink className="dropdown-item" to="/favorites">
                       Favorite Movies
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink className="dropdown-item" to="/watched">
-                      Watched
+                    <NavLink className="dropdown-item" to="/watchlist">
+                      Watchlist
                     </NavLink>
                   </li>
                   <li>
