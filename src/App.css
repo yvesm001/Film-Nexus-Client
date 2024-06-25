@@ -1,19 +1,9 @@
-/* Movie Card */
-.movieCard {
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: wrap !important;
-  align-items: center !important;
-  justify-content: space-evenly !important;
-  gap: 20px !important;
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.card {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
+/* Movie Card */
 
 /* //////////// */

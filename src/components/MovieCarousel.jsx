@@ -1,17 +1,6 @@
 import React from "react";
 
-function MovieCarousel({
-  title,
-  description,
-  releaseYear,
-  genre,
-  cast,
-  posterImg,
-  backdropImg,
-  rating,
-  trailerUrl,
-  popularity,
-}) {
+function MovieCarousel({ title, posterImg, rating }) {
   return (
     <div>
       <div

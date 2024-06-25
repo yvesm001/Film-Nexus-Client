@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { MovieContext } from "../context/movie.context";
 import { useParams } from "react-router-dom";
+import ReviewCard from "../components/ReviewCard";
 
 export default function MovieDetails() {
   const [movie, setMovie] = useState(null);
@@ -12,15 +13,32 @@ export default function MovieDetails() {
   }, [movies, movieId]);
   return (
     <div>
+      <h1>Details Page</h1>
       {movie ? (
-        <>
-          <h1>{movie.title}</h1>
-          <h2>{movie.releaseYear}</h2>
-          <h3>{movie.description}</h3>
-        </>
+        <div className="movieCard">
+          {/* <img
+            src={movie.backdropImg}
+            className="card-img-top"
+            alt="Movie Poster"
+          /> */}
+          <div className="card" style={{ width: "30rem" }}>
+            <img
+              src={movie.posterImg}
+              className="card-img-top"
+              alt="Movie Poster"
+            />
+            <div className="card-body">
+              <h1>{movie.title}</h1>
+              <h2 className="card-text">Relese Year: {movie.releaseYear}</h2>
+              <h3>Sinopsis: {movie.description}</h3>
+            </div>
+          </div>
+        </div>
       ) : (
         <h1>no movie</h1>
       )}
+      <hr />
+      <ReviewCard />
     </div>
   );
 }
