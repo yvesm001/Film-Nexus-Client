@@ -7,6 +7,7 @@ const MovieContext = createContext();
 
 function MovieProvider({ children }) {
   const [movies, setMovies] = useState(null);
+  const [watchlist, setWatchlist] = useState(null);
   const navigate = useNavigate();
 
   const getAllMovies = async () => {
@@ -81,6 +82,28 @@ function MovieProvider({ children }) {
     }
   };
 
+  const getWatchlist = async () => {
+    try {
+      const response = await api.get("/user/watchlist");
+      console.log("Watchlist response:", response.data.watchlist);
+      setWatchlist(response.data.watchlist);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const removeFromWatchlist = async (movieId) => {
+    try {
+      const response = await api.delete(`user/watchlist/${movieId}`);
+      if (response.status === 200) {
+        toast.success("Movie removed from watchlist")
+      }
+    } catch (error) {
+      console.log("Error removing movie from watchlist", error);
+      toast.error("Error removing move from watchlist")
+    }
+  }
+
   return (
     <MovieContext.Provider
       value={{
@@ -90,6 +113,9 @@ function MovieProvider({ children }) {
         deleteMovie,
         getAllMovies,
         addToWatchlist,
+        getWatchlist,
+        watchlist,
+        removeFromWatchlist
       }}
     >
       {children}
