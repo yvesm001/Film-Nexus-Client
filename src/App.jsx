@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import FavoritePage from "./pages/FavoritePage";
 import WatchedPage from "./pages/WatchedPage";
 import MyListPage from "./pages/MyListPage";
+import MovieDetails from "./pages/MovieDetails";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/mylist" element={<MyListPage />} />
         <Route path="/favorite" element={<FavoritePage />} />
         <Route path="/watched" element={<WatchedPage />} />
+        <Route path="/movies/:movieId" element={<MovieDetails />} />
       </Routes>
     </div>
   );
