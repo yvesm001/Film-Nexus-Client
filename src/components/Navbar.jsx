@@ -43,7 +43,7 @@ function Navbar() {
                 <ul className="dropdown-menu">
                   <li>
                     <NavLink className="dropdown-item" to="/favorites">
-                      Favorite Movies
+                      Favorites
                     </NavLink>
                   </li>
                   <li>
