@@ -69,9 +69,28 @@ function MovieProvider({ children }) {
     }
   };
 
+  const addToWatchlist = async (movieId) => {
+    try {
+      const response = await api.post(`user/watchlist/${movieId}`);
+      if (response.status === 200 || response.status === 201) {
+        toast.success("Movie added to watchlist");
+      }
+    } catch (error) {
+      console.log("Error adding movie to watchlist", error);
+      toast.error("Error adding movie to watchlist");
+    }
+  };
+
   return (
     <MovieContext.Provider
-      value={{ movies, createMovie, updateMovie, deleteMovie, getAllMovies }}
+      value={{
+        movies,
+        createMovie,
+        updateMovie,
+        deleteMovie,
+        getAllMovies,
+        addToWatchlist,
+      }}
     >
       {children}
     </MovieContext.Provider>
