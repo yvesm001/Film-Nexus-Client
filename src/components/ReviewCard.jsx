@@ -84,6 +84,7 @@ export default function ReviewCard({ review, user }) {
         </div>
       ) : (
         <div>
+          <h1>Review Cards</h1>
           <img src={review.creator.profilePic} alt="Profile" />
           <h3>{review.title}</h3>
           <p>{review.rating}⭐</p>

@@ -6,6 +6,8 @@ import { AuthContext } from "../context/auth.context";
 import ReviewCard from "../components/ReviewCard";
 import ReviewForm from "../components/ReviewForm";
 import { Link } from "react-router-dom";
+import ReactPlayer from "react-player";
+import TrailerPlayer from "../components/TrailerPlayer";
 
 export default function MovieDetails() {
   const [movie, setMovie] = useState(null);
@@ -19,8 +21,11 @@ export default function MovieDetails() {
 
   return (
     <div>
+    
+    
       <h1>Movie Details</h1>
       {movie ? <MovieDetailsCard movie={movie} /> : <p>Loading...</p>}
+      {movie && <TrailerPlayer movie={movie} />}
       {!user || user.isAdmin ? (
         <p>
           <Link to="/login">Login</Link> to leave a review.
