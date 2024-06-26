@@ -99,12 +99,10 @@ function MovieProvider({ children }) {
       const response = await api.delete(`user/watchlist/${movieId}`);
       if (response.status === 200) {
         toast.success("Movie removed from watchlist");
-        
       }
     } catch (error) {
       console.log("Error removing movie from watchlist", error);
       toast.error("Error removing move from watchlist");
-      
     }
   };
 
@@ -142,6 +140,7 @@ function MovieProvider({ children }) {
     }
   };
 
+
   const searchMovies = async (query) => {
     try {
       const response = await api.get(`/movie/search?query=${query}`);
@@ -150,6 +149,7 @@ function MovieProvider({ children }) {
       console.log("Error searching movies", error);
     }
   };
+
 
  
   return (
