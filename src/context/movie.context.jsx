@@ -2,13 +2,14 @@ import { createContext, useEffect, useState } from "react";
 import api from "../services/api";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-hot-toast";
 
 const MovieContext = createContext();
 
 function MovieProvider({ children }) {
   const [movies, setMovies] = useState(null);
+  const [watchlist, setWatchlist] = useState(null);
+  const [favorites, setFavorites] = useState(null);
+  const navigate = useNavigate();
 
   const getAllMovies = async () => {
     try {

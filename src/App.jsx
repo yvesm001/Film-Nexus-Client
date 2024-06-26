@@ -22,7 +22,6 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
 
-
         <Route path="/mylist" element={<MyListPage />} />
         <Route path="/favorites" element={<FavoritesPage />} />
         <Route path="/watchlist" element={<WatchlistPage />} />

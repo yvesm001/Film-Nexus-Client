@@ -103,22 +103,6 @@ function Navbar() {
                 </Link>
               </>
             )}
-
-            {/* LOGIN/SIGNUP AND LOGOUT BUTTONS */}
-            {user ? (
-              <button onClick={logout} className="btn btn-outline-success">
-                Logout
-              </button>
-            ) : (
-              <>
-                <Link to="/login" className="btn btn-outline-success">
-                  Login
-                </Link>
-                <Link to="/signup" className="btn btn-outline-success">
-                  Signup
-                </Link>
-              </>
-            )}
           </div>
         </div>
       </nav>
