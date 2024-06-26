@@ -8,6 +8,8 @@ const MovieContext = createContext();
 function MovieProvider({ children }) {
   const [movies, setMovies] = useState(null);
   const [watchlist, setWatchlist] = useState(null);
+  const [searchResults, setSearchResults] = useState(null);
+  const [favorites, setFavorites] = useState(null)
   const navigate = useNavigate();
 
   const getAllMovies = async () => {
@@ -96,14 +98,58 @@ function MovieProvider({ children }) {
     try {
       const response = await api.delete(`user/watchlist/${movieId}`);
       if (response.status === 200) {
-        toast.success("Movie removed from watchlist")
+        toast.success("Movie removed from watchlist");
       }
     } catch (error) {
       console.log("Error removing movie from watchlist", error);
-      toast.error("Error removing move from watchlist")
+      toast.error("Error removing move from watchlist");
     }
-  }
+  };
 
+  const addToFavorites = async (movieId) => {
+    try {
+      const response = await api.post(`user/favorites/${movieId}`);
+      if (response.status === 200 || response.status === 201) {
+        toast.success("Movie added to favorites");
+      }
+    } catch (error) {
+      console.log("Error adding movie to favorites", error);
+      toast.error("Error adding movie to favorites");
+    }
+  };
+
+  const getFavorites = async () => {
+    try {
+      const response = await api.get("/user/favorites");
+      console.log("Favorites response:", response.data.favorites);
+      setFavorites(response.data.favorites);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const removeFromFavorites = async (movieId) => {
+    try {
+      const response = await api.delete(`user/favorites/${movieId}`);
+      if (response.status === 200) {
+        toast.success("Movie removed from favorites");
+      }
+    } catch (error) {
+      console.log("Error removing movie from favorites", error);
+      toast.error("Error removing move from favorites");
+    }
+  };
+
+  const searchMovies = async (query) => {
+    try {
+      const response = await api.get(`/movie/search?query=${query}`);
+      setSearchResults(response.data);
+    } catch (error) {
+      console.log("Error searching movies", error);
+    }
+  };
+
+ 
   return (
     <MovieContext.Provider
       value={{
@@ -115,7 +161,14 @@ function MovieProvider({ children }) {
         addToWatchlist,
         getWatchlist,
         watchlist,
-        removeFromWatchlist
+        removeFromWatchlist,
+        searchMovies,
+        searchResults,
+        favorites,
+        addToFavorites,
+        removeFromFavorites,
+        getFavorites,
+        
       }}
     >
       {children}

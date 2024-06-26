@@ -13,6 +13,7 @@ import CreateMoviePage from "./pages/CreateMoviePage";
 
 import { Toaster } from "react-hot-toast";
 import WatchlistPage from "./pages/WatchlistPage";
+import SearchPage from "./pages/SearchPage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/search" element={<SearchPage />} />
 
         <Route path="/mylist" element={<MyListPage />} />
         <Route path="/favorites" element={<FavoritesPage />} />

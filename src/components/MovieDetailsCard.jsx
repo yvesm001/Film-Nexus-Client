@@ -1,60 +1,89 @@
-import React from "react";
-import { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { MovieContext } from "../context/movie.context";
 import { AuthContext } from "../context/auth.context";
 import EditForm from "./EditForm";
 
 export default function MovieDetailsCard({ movie }) {
   const [toggleEdit, setToggleEdit] = useState(false);
-  const { deleteMovie, addToWatchlist, removeFromWatchlist, watchlist, getWatchlist } = useContext(MovieContext);
+  const {
+    deleteMovie,
+    addToWatchlist,
+    removeFromWatchlist,
+    watchlist,
+    getWatchlist,
+    addToFavorites,
+    removeFromFavorites,
+    favorites,
+    getFavorites,
+  } = useContext(MovieContext);
   const { user } = useContext(AuthContext);
   const [inWatchlist, setInWatchlist] = useState(false);
+  const [inFavorites, setInFavorites] = useState(false);
 
   useEffect(() => {
-    // Fetch the watchlist if not already done
+    // Fetch the watchlist and favorites if not already done
     if (!watchlist) {
       getWatchlist();
     }
-    // Check if the movie is in the watchlist
-    if (watchlist && watchlist.some(item => item._id === movie._id)) {
-      setInWatchlist(true);
-    } else {
-      setInWatchlist(false);
+    if (!favorites) {
+      getFavorites();
     }
-  }, [watchlist, movie._id, getWatchlist]);
+  }, [getWatchlist, getFavorites, watchlist, favorites]);
+
+  useEffect(() => {
+    // Check if the movie is in the watchlist
+    if (watchlist) {
+      setInWatchlist(watchlist.some((item) => item._id === movie._id));
+    }
+
+    // Check if the movie is in the favorites
+    if (favorites) {
+      setInFavorites(favorites.some((item) => item._id === movie._id));
+    }
+  }, [watchlist, favorites, movie._id]);
 
   const handleWatchlistAction = async () => {
     try {
-        if (inWatchlist) {
-            await removeFromWatchlist(movie._id);
-            setInWatchlist(false);
-        } else {
-            await addToWatchlist(movie._id);
-            setInWatchlist(true)
-        }
+      if (inWatchlist) {
+        await removeFromWatchlist(movie._id);
+        setInWatchlist(false);
+      } else {
+        await addToWatchlist(movie._id);
+        setInWatchlist(true);
+      }
     } catch (error) {
-        console.log("Error updating watchlist", error)
+      console.log("Error updating watchlist", error);
     }
-  }
+  };
 
-//   const handleAddToWatchlist = async () => {
-//     console.log("Add to watchlist clicked");
-//     try {
-//       await addToWatchlist(movie._id);
-//       console.log("Movie added to watchlist");
-//     } catch (error) {
-//       console.log("Error adding movie to watchlist", error);
-//     }
-//   };
+  const handleFavoritesAction = async () => {
+    try {
+      if (inFavorites) {
+        await removeFromFavorites(movie._id);
+        setInFavorites(false);
+      } else {
+        await addToFavorites(movie._id);
+        setInFavorites(true);
+      }
+    } catch (error) {
+      console.log("Error updating favorites", error);
+    }
+  };
+
   return (
     <div>
       <h1>{movie.title}</h1>
       <h2>{movie.releaseYear}</h2>
       <h3>{movie.description}</h3>
       {user && (
-        <button onClick={handleWatchlistAction}>
-          {inWatchlist ? "Remove from Watchlist" : "Add to Watchlist"}
-        </button>
+        <>
+          <button onClick={handleWatchlistAction}>
+            {inWatchlist ? "Remove from Watchlist" : "Add to Watchlist"}
+          </button>
+          <button onClick={handleFavoritesAction}>
+            {inFavorites ? "Remove from Favorites" : "Add to Favorites"}
+          </button>
+        </>
       )}
       {user && user.isAdmin && (
         <>
