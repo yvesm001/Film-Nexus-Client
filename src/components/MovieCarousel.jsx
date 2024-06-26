@@ -1,3 +1,8 @@
+
+import React from "react";
+
+
+
 function MovieCarousel({ title, posterImg, rating }) {
   return (
     <div>

@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../assets/NexsusLogo.png";
-import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 
 function Navbar() {
   const { user, logout } = useContext(AuthContext);
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
         <div className="container-fluid">
-          <NavLink className="navbar-brand"> Film Nexsus</NavLink>
+          <NavLink className="navbar-brand" to="/">
+            Film Nexsus
+          </NavLink>
           <button
             className="navbar-toggler"
             type="button"
@@ -29,7 +31,11 @@ function Navbar() {
                   Home
                 </NavLink>
               </li>
-
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/search">
+                  Search
+                </NavLink>
+              </li>
               <li className="nav-item dropdown">
                 <NavLink
                   className="nav-link dropdown-toggle"
@@ -66,21 +72,6 @@ function Navbar() {
                 </Link>
               )}
             </div>
-
-            <form className="d-flex" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button
-                className="btn btn-outline-success text-white"
-                type="submit"
-              >
-                Search
-              </button>
-            </form>
 
             {/* LOGIN/SIGNUP AND LOGOUT BUTTONS */}
             {user ? (

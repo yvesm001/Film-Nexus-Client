@@ -81,9 +81,10 @@ function LoginForm() {
                   <div>
                     <p class="mb-0">
                       Don't have an account?{" "}
-                      <a href="#!" class=" fw-bold text-body">
+                      <Link to="/signup" class=" fw-bold text-body">
                         Sign Up
-                      </a>
+                      </Link>
+
                     </p>
                   </div>
                 </div>

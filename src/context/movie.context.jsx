@@ -8,7 +8,8 @@ const MovieContext = createContext();
 function MovieProvider({ children }) {
   const [movies, setMovies] = useState(null);
   const [watchlist, setWatchlist] = useState(null);
-  const [favorites, setFavorites] = useState(null);
+  const [searchResults, setSearchResults] = useState(null);
+  const [favorites, setFavorites] = useState(null)
   const navigate = useNavigate();
 
   const getAllMovies = async () => {
@@ -139,6 +140,18 @@ function MovieProvider({ children }) {
     }
   };
 
+
+  const searchMovies = async (query) => {
+    try {
+      const response = await api.get(`/movie/search?query=${query}`);
+      setSearchResults(response.data);
+    } catch (error) {
+      console.log("Error searching movies", error);
+    }
+  };
+
+
+ 
   return (
     <MovieContext.Provider
       value={{
@@ -151,10 +164,13 @@ function MovieProvider({ children }) {
         getWatchlist,
         watchlist,
         removeFromWatchlist,
+        searchMovies,
+        searchResults,
         favorites,
         addToFavorites,
         removeFromFavorites,
         getFavorites,
+        
       }}
     >
       {children}

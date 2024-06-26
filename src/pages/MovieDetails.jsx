@@ -23,7 +23,7 @@ export default function MovieDetails() {
     <div>
       <h1>Movie Details</h1>
       {movie ? <MovieDetailsCard movie={movie} /> : <p>Loading...</p>}
-      {movie && <TrailerPlayer movie={movie} />}
+      {movie && movie.trailerUrl && <TrailerPlayer movie={movie} />}
       {!user || user.isAdmin ? (
         <p>
           <Link to="/login">Login</Link> to leave a review.

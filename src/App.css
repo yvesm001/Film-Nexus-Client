@@ -15,7 +15,6 @@ body {
   flex-wrap: wrap !important;
   gap: 50px;
 }
-
 .card-body {
   display: flex !important;
   flex-direction: column !important;
@@ -25,11 +24,9 @@ body {
   font-size: 20px !important;
   font-weight: bold !important;
 }
-
 .detailsBtn {
   margin-bottom: 1.5rem !important;
 }
-
 /* Hover in Movie Card */
 .image {
   opacity: 30;
@@ -39,7 +36,6 @@ body {
   transition: 0.5s ease;
   backface-visibility: hidden;
 }
-
 .middle {
   transition: 0.5s ease;
   opacity: 0;
@@ -50,24 +46,17 @@ body {
   -ms-transform: translate(-50%, -50%);
   text-align: center;
 }
-
 .card-body:hover .image {
   opacity: 0.3;
 }
-
 .card-body:hover .middle {
   opacity: 1;
 }
 .card-title {
-  color: #09ff00 !important;
+  color: #09FF00 !important;
 }
 .text {
-  color: #09ff00 !important;
+  color: #09FF00 !important;
   font-size: 30px !important;
   padding: 16px 32px !important;
 }
-/* //////////// */
-
-/* Details Card */
-
-/* //////////// */
