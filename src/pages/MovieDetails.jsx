@@ -21,11 +21,17 @@ export default function MovieDetails() {
     <div>
       <h1>Movie Details</h1>
       {movie ? <MovieDetailsCard movie={movie} /> : <p>Loading...</p>}
-      {!user || user.isAdmin ? (<p><Link to="/login">Login</Link> to leave a review.</p>): (<ReviewForm />)}
-      
+      {!user || user.isAdmin ? (
+        <p>
+          <Link to="/login">Login</Link> to leave a review.
+        </p>
+      ) : (
+        <ReviewForm />
+      )}
+
       {movie && movie.reviews.length ? (
         movie.reviews.map((review) => (
-          <ReviewCard key={review._id} review={review} />
+          <ReviewCard key={review._id} review={review} user={user} />
         ))
       ) : (
         <p>No reviews yet</p>

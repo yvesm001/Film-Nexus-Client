@@ -5,7 +5,7 @@ import SignupPage from "./pages/SignupPage";
 import Homepage from "./pages/Homepage";
 
 import Navbar from "./components/Navbar";
-import FavoritesPage from "./pages/FavoritesPage"
+import FavoritesPage from "./pages/FavoritesPage";
 import MyListPage from "./pages/MyListPage";
 
 import MovieDetails from "./pages/MovieDetails";
