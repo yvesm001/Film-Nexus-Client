@@ -84,6 +84,7 @@ function LoginForm() {
                       <Link to="/signup" class=" fw-bold text-body">
                         Sign Up
                       </Link>
+
                     </p>
                   </div>
                 </div>
