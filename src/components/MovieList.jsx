@@ -5,7 +5,7 @@ import MovieCard from "./MovieCard";
 export default function MovieList() {
   const { movies } = useContext(MovieContext);
   return (
-    <div>
+    <div className="movieList">
       {movies ? (
         movies.map((movie) => <MovieCard key={movie._id} {...movie} />)
       ) : (

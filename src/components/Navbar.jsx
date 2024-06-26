@@ -8,7 +8,7 @@ function Navbar() {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
         <div className="container-fluid">
           <NavLink className="navbar-brand" to="/">
             Film Nexsus
@@ -80,10 +80,16 @@ function Navbar() {
               </button>
             ) : (
               <>
-                <Link to="/login" className="btn btn-outline-success">
+                <Link
+                  to="/login"
+                  className="btn btn-outline-success text-white"
+                >
                   Login
                 </Link>
-                <Link to="/signup" className="btn btn-outline-success">
+                <Link
+                  to="/signup"
+                  className="btn btn-outline-success text-white"
+                >
                   Signup
                 </Link>
               </>
