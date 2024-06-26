@@ -19,16 +19,22 @@ export default function MovieCard({
  
   return (
     <div className="movieCard">
-      <div className="card" style={{ width: "18rem" }}>
-        <img src={posterImg} className="card-img-top" alt="Movie Poster" />
-        <div className="card-body">
-          <h5 className="card-title">{title}</h5>
-          <p className="card-text">Release Year: {releaseYear}</p>
-          <p>Synopsis: {description}</p>
-
-          <Link to={`/movies/${_id}`} className="btn btn-primary">
-            Details
-          </Link>
+      <div className="card" style={{ width: "22rem", border: "5px solid red" }}>
+        <img
+          src={posterImg}
+          className=" imgage card-img-top"
+          alt="Movie Poster"
+        />
+        <div className="card-body" style={{ backgroundColor: "#41bc93" }}>
+          <div className="middle">
+            <Link to={`/movies/${_id}`} className="detailsBtn btn btn-danger">
+              ▶️
+            </Link>
+            <p className="text">⭐{Math.round(rating)}</p>
+            <p className="card-title">
+              {title} ({releaseYear})
+            </p>
+          </div>
         </div>
       </div>
     </div>

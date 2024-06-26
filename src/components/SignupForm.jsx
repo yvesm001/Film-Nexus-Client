@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useContext } from "react";
 import { AuthContext } from "../context/auth.context";
+import { Link } from "react-router-dom";
 
 export default function SignupForm() {
   const [signupInfo, setSignupInfo] = useState({
@@ -40,41 +41,104 @@ export default function SignupForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="email">email</label>
-      <input
-        type="email"
-        name="email"
-        value={signupInfo.email}
-        onChange={handleChange}
-      />
+      <section class="vh-100 bg-image">
+        <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+          <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+              <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                <div class="card" style={{ borderRadius: "15px" }}>
+                  <div
+                    class="card-body p-5"
+                    style={{ backgroundColor: "#c6c6c6", borderRadius: "15px" }}
+                  >
+                    <h2 class="text-uppercase text-center mb-5">
+                      Create an account
+                    </h2>
 
-      <label htmlFor="username">username</label>
-      <input
-        type="text"
-        name="username"
-        value={signupInfo.username}
-        onChange={handleChange}
-      />
+                    <form>
+                      <div data-mdb-input-init class="form-outline mb-4">
+                        <input
+                          type="text"
+                          id="form3Example1cg"
+                          class="form-control form-control-lg"
+                          name="username"
+                          value={signupInfo.username}
+                          onChange={handleChange}
+                        />
+                        <label class="form-label" for="form3Example1cg">
+                          Username
+                        </label>
+                      </div>
 
-      <label htmlFor="password">password</label>
-      <input
-        type="password"
-        name="password"
-        value={signupInfo.password}
-        onChange={handleChange}
-      />
+                      <div data-mdb-input-init class="form-outline mb-4">
+                        <input
+                          type="email"
+                          id="form3Example3cg"
+                          class="form-control form-control-lg"
+                          name="email"
+                          value={signupInfo.email}
+                          onChange={handleChange}
+                        />
+                        <label class="form-label" for="form3Example3cg">
+                          Your Email
+                        </label>
+                      </div>
 
-      <label htmlFor="repeatPassword">repeat password</label>
-      <input
-        type="password"
-        name="repeatPassword"
-        value={signupInfo.repeatPassword}
-        onChange={handleChange}
-      />
+                      <div data-mdb-input-init class="form-outline mb-4">
+                        <input
+                          type="password"
+                          id="form3Example4cg"
+                          class="form-control form-control-lg"
+                          name="password"
+                          value={signupInfo.password}
+                          onChange={handleChange}
+                        />
+                        <label class="form-label" for="form3Example4cg">
+                          Password
+                        </label>
+                      </div>
 
-      {!passwordsMatch && <p>Passwords do not match</p>}
+                      <div data-mdb-input-init class="form-outline mb-4">
+                        <input
+                          type="password"
+                          id="form3Example4cdg"
+                          class="form-control form-control-lg"
+                          name="password"
+                          value={signupInfo.password}
+                          onChange={handleChange}
+                        />
+                        <label class="form-label" for="form3Example4cdg">
+                          Repeat your password
+                        </label>
+                      </div>
 
-      <button type="submit">sign up</button>
+                      {!passwordsMatch && <p>Passwords do not match</p>}
+
+                      <div class="d-flex justify-content-center">
+                        <button
+                          type="button"
+                          data-mdb-button-init
+                          data-mdb-ripple-init
+                          class="btn btn-success btn-block btn-lg text-white"
+                        >
+                          Register
+                        </button>
+                      </div>
+
+                      <p class="text-center text-muted mt-5 mb-0">
+                        Have already an account?{" "}
+                        <Link to="/login" class="fw-bold text-body">
+                          <u>Login here</u>
+                        </Link>
+                      </p>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </form>
   );
 }

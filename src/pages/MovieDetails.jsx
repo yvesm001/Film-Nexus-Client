@@ -21,8 +21,6 @@ export default function MovieDetails() {
 
   return (
     <div>
-    
-    
       <h1>Movie Details</h1>
       {movie ? <MovieDetailsCard movie={movie} /> : <p>Loading...</p>}
       {movie && <TrailerPlayer movie={movie} />}
