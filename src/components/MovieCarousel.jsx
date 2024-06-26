@@ -1,3 +1,4 @@
+
 import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { MovieContext } from "../context/movie.context";

@@ -140,6 +140,7 @@ function MovieProvider({ children }) {
     }
   };
 
+
   const searchMovies = async (query) => {
     try {
       const response = await api.get(`/movie/search?query=${query}`);
@@ -148,6 +149,7 @@ function MovieProvider({ children }) {
       console.log("Error searching movies", error);
     }
   };
+
 
   return (
     <MovieContext.Provider
