@@ -9,7 +9,7 @@ function MovieProvider({ children }) {
   const [movies, setMovies] = useState(null);
   const [watchlist, setWatchlist] = useState(null);
   const [searchResults, setSearchResults] = useState(null);
-  const [favorites, setFavorites] = useState(null)
+  const [favorites, setFavorites] = useState(null);
   const navigate = useNavigate();
 
   const getAllMovies = async () => {
@@ -99,12 +99,10 @@ function MovieProvider({ children }) {
       const response = await api.delete(`user/watchlist/${movieId}`);
       if (response.status === 200) {
         toast.success("Movie removed from watchlist");
-        
       }
     } catch (error) {
       console.log("Error removing movie from watchlist", error);
       toast.error("Error removing move from watchlist");
-      
     }
   };
 
@@ -151,7 +149,6 @@ function MovieProvider({ children }) {
     }
   };
 
- 
   return (
     <MovieContext.Provider
       value={{
@@ -170,7 +167,6 @@ function MovieProvider({ children }) {
         addToFavorites,
         removeFromFavorites,
         getFavorites,
-        
       }}
     >
       {children}
