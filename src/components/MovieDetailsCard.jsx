@@ -16,17 +16,6 @@ export default function MovieDetailsCard({ movie }) {
     favorites,
     getFavorites,
   } = useContext(MovieContext);
-  const {
-    deleteMovie,
-    addToWatchlist,
-    removeFromWatchlist,
-    watchlist,
-    getWatchlist,
-    addToFavorites,
-    removeFromFavorites,
-    favorites,
-    getFavorites,
-  } = useContext(MovieContext);
   const { user } = useContext(AuthContext);
   const [inWatchlist, setInWatchlist] = useState(false);
   const [inFavorites, setInFavorites] = useState(false);
