@@ -99,12 +99,12 @@ function MovieProvider({ children }) {
       const response = await api.delete(`user/watchlist/${movieId}`);
       if (response.status === 200) {
         toast.success("Movie removed from watchlist");
-        toast.success("Movie removed from watchlist");
+        
       }
     } catch (error) {
       console.log("Error removing movie from watchlist", error);
       toast.error("Error removing move from watchlist");
-      toast.error("Error removing move from watchlist");
+      
     }
   };
 
