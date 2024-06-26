@@ -8,7 +8,7 @@ function Navbar() {
   const { user, logout } = useContext(AuthContext);
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
         <div className="container-fluid">
           <NavLink className="navbar-brand"> Film Nexsus</NavLink>
           <button
@@ -74,7 +74,10 @@ function Navbar() {
                 placeholder="Search"
                 aria-label="Search"
               />
-              <button className="btn btn-outline-success" type="submit">
+              <button
+                className="btn btn-outline-success text-white"
+                type="submit"
+              >
                 Search
               </button>
             </form>
@@ -86,10 +89,16 @@ function Navbar() {
               </button>
             ) : (
               <>
-                <Link to="/login" className="btn btn-outline-success">
+                <Link
+                  to="/login"
+                  className="btn btn-outline-success text-white"
+                >
                   Login
                 </Link>
-                <Link to="/signup" className="btn btn-outline-success">
+                <Link
+                  to="/signup"
+                  className="btn btn-outline-success text-white"
+                >
                   Signup
                 </Link>
               </>

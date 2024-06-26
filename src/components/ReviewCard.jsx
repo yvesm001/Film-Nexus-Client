@@ -1,32 +1,23 @@
 import React from "react";
-import { useContext } from "react";
-import { MovieContext } from "../context/movie.context";
 
-function ReviewCard({ user, review }) {
-  const { getAllMovies } = useContext(MovieContext);
-  const handleDelete = async (reviewId) => {
-    try {
-      const check = confirm("Are you sure you want to delete your review?");
-      if (check) {
-        const response = await api.delete("/review/" + reviewId);
-
-        if (response.status === 200) {
-          toast.success("Your review was deleted");
-          getAllMovies();
-        }
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+export default function ReviewCard({ review }) {
   return (
-    <div class="card">
-      <div class="card-header">{user}user</div>
-      <div class="card-body">
-        <h5 class="card-text">{review} review</h5>
-      </div>
+    <div>
+      <img src={review.creator.profilePic} />
+      <h3>{review.title}</h3>
+      <p>{review.rating}⭐</p>
+      <p>{review.review}</p>
+      <p>
+        {new Date(review.createdAt).toLocaleString("en-US", {
+          weekday: "short",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+          hour: "numeric",
+          minute: "numeric",
+        })}
+      </p>
+      <p>{review.creator.username}</p>
     </div>
   );
 }
-
-export default ReviewCard;
