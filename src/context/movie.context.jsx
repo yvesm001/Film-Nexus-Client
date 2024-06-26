@@ -2,12 +2,13 @@ import { createContext, useEffect, useState } from "react";
 import api from "../services/api";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 const MovieContext = createContext();
 
 function MovieProvider({ children }) {
   const [movies, setMovies] = useState(null);
-  const navigate = useNavigate();
 
   const getAllMovies = async () => {
     try {
@@ -69,9 +70,91 @@ function MovieProvider({ children }) {
     }
   };
 
+  const addToWatchlist = async (movieId) => {
+    try {
+      const response = await api.post(`user/watchlist/${movieId}`);
+      if (response.status === 200 || response.status === 201) {
+        toast.success("Movie added to watchlist");
+      }
+    } catch (error) {
+      console.log("Error adding movie to watchlist", error);
+      toast.error("Error adding movie to watchlist");
+    }
+  };
+
+  const getWatchlist = async () => {
+    try {
+      const response = await api.get("/user/watchlist");
+      console.log("Watchlist response:", response.data.watchlist);
+      setWatchlist(response.data.watchlist);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const removeFromWatchlist = async (movieId) => {
+    try {
+      const response = await api.delete(`user/watchlist/${movieId}`);
+      if (response.status === 200) {
+        toast.success("Movie removed from watchlist");
+      }
+    } catch (error) {
+      console.log("Error removing movie from watchlist", error);
+      toast.error("Error removing move from watchlist");
+    }
+  };
+
+  const addToFavorites = async (movieId) => {
+    try {
+      const response = await api.post(`user/favorites/${movieId}`);
+      if (response.status === 200 || response.status === 201) {
+        toast.success("Movie added to favorites");
+      }
+    } catch (error) {
+      console.log("Error adding movie to favorites", error);
+      toast.error("Error adding movie to favorites");
+    }
+  };
+
+  const getFavorites = async () => {
+    try {
+      const response = await api.get("/user/favorites");
+      console.log("Favorites response:", response.data.favorites);
+      setFavorites(response.data.favorites);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const removeFromFavorites = async (movieId) => {
+    try {
+      const response = await api.delete(`user/favorites/${movieId}`);
+      if (response.status === 200) {
+        toast.success("Movie removed from favorites");
+      }
+    } catch (error) {
+      console.log("Error removing movie from favorites", error);
+      toast.error("Error removing move from favorites");
+    }
+  };
+
   return (
     <MovieContext.Provider
-      value={{ movies, createMovie, updateMovie, deleteMovie, getAllMovies }}
+      value={{
+        movies,
+        createMovie,
+        updateMovie,
+        deleteMovie,
+        getAllMovies,
+        addToWatchlist,
+        getWatchlist,
+        watchlist,
+        removeFromWatchlist,
+        favorites,
+        addToFavorites,
+        removeFromFavorites,
+        getFavorites,
+      }}
     >
       {children}
     </MovieContext.Provider>

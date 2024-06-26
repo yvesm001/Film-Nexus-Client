@@ -33,7 +33,7 @@ function Navbar() {
               <li className="nav-item dropdown">
                 <NavLink
                   className="nav-link dropdown-toggle"
-                  href="#"
+                  to="#"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
@@ -42,13 +42,13 @@ function Navbar() {
                 </NavLink>
                 <ul className="dropdown-menu">
                   <li>
-                    <NavLink className="dropdown-item" to="favorite">
-                      Favorite Movies
+                    <NavLink className="dropdown-item" to="/favorites">
+                      Favorites
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink className="dropdown-item" to="/watched">
-                      Watched
+                    <NavLink className="dropdown-item" to="/watchlist">
+                      Watchlist
                     </NavLink>
                   </li>
                   <li>
@@ -99,6 +99,22 @@ function Navbar() {
                   to="/signup"
                   className="btn btn-outline-success text-white"
                 >
+                  Signup
+                </Link>
+              </>
+            )}
+
+            {/* LOGIN/SIGNUP AND LOGOUT BUTTONS */}
+            {user ? (
+              <button onClick={logout} className="btn btn-outline-success">
+                Logout
+              </button>
+            ) : (
+              <>
+                <Link to="/login" className="btn btn-outline-success">
+                  Login
+                </Link>
+                <Link to="/signup" className="btn btn-outline-success">
                   Signup
                 </Link>
               </>
