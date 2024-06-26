@@ -5,7 +5,6 @@ import SignupPage from "./pages/SignupPage";
 import Homepage from "./pages/Homepage";
 import Navbar from "./components/Navbar";
 import FavoritesPage from "./pages/FavoritesPage";
-import MyListPage from "./pages/MyListPage";
 
 import MovieDetails from "./pages/MovieDetails";
 import CreateMoviePage from "./pages/CreateMoviePage";
@@ -24,7 +23,6 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/search" element={<SearchPage />} />
 
-        <Route path="/mylist" element={<MyListPage />} />
         <Route path="/favorites" element={<FavoritesPage />} />
         <Route path="/watchlist" element={<WatchlistPage />} />
 
