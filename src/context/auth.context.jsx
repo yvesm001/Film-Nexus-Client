@@ -73,6 +73,7 @@ function AuthProvider({ children }) {
     setUser(null);
     setLoggedIn(false);
     localStorage.clear();
+    navigate("/")
   };
 
   useEffect(() => {

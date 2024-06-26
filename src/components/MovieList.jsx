@@ -7,7 +7,7 @@ export default function MovieList() {
   return (
     <div>
       {movies ? (
-        movies.map((movie) => <MovieCard {...movie} />)
+        movies.map((movie) => <MovieCard key={movie._id} {...movie} />)
       ) : (
         <p>Loading...</p>
       )}

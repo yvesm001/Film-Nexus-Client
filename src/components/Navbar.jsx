@@ -1,8 +1,11 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Logo from "../assets/NexsusLogo.png";
+import { useContext } from "react";
+import { AuthContext } from "../context/auth.context";
 
 function Navbar() {
+  const { user, logout } = useContext(AuthContext);
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -54,6 +57,16 @@ function Navbar() {
                 </ul>
               </li>
             </ul>
+
+            {/* CONDITIONALLY RENDERED BUTTON TO ADD NEW MOVIE IF LOGGED IN USER IS AN ADMIN */}
+            <div>
+              {user && user.isAdmin && (
+                <Link to="/movie/create" className="btn btn-outline-success">
+                  Add a new movie
+                </Link>
+              )}
+            </div>
+
             <form className="d-flex" role="search">
               <input
                 className="form-control me-2"
@@ -65,6 +78,22 @@ function Navbar() {
                 Search
               </button>
             </form>
+
+            {/* LOGIN/SIGNUP AND LOGOUT BUTTONS */}
+            {user ? (
+              <button onClick={logout} className="btn btn-outline-success">
+                Logout
+              </button>
+            ) : (
+              <>
+                <Link to="/login" className="btn btn-outline-success">
+                  Login
+                </Link>
+                <Link to="/signup" className="btn btn-outline-success">
+                  Signup
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </nav>
