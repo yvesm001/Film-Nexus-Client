@@ -21,49 +21,51 @@ function LoginForm() {
         login(loginInfo);
       }}
     >
-      <section class="vh-100 gradient-custom">
-        <div class="container py-5 h-100">
-          <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+      <section className="vh-100 gradient-custom">
+        <div className="container py-5 h-100">
+          <div className="row d-flex justify-content-center align-items-center h-100">
+            <div className="col-12 col-md-8 col-lg-6 col-xl-5">
               <div
-                class="card"
+                className="card"
                 style={{ backgroundColor: "#c6c6c6", borderRadius: "1rem" }}
               >
-                <div class="card-body p-5 text-center">
-                  <div class="mb-md-5 mt-md-4 pb-5">
-                    <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
-                    <p class=" mb-5">Please enter your login and password!</p>
+                <div className="card-body p-5 text-center">
+                  <div className="mb-md-5 mt-md-4 pb-5">
+                    <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
+                    <p className=" mb-5">
+                      Please enter your login and password!
+                    </p>
 
                     <div
                       data-mdb-input-init
-                      class="form-outline form-white mb-4"
+                      className="form-outline form-white mb-4"
                     >
                       <input
                         type="email"
                         id="typeEmailX"
-                        class="form-control form-control-lg"
+                        className="form-control form-control-lg"
                         name="loginInfo"
                         value={loginInfo.loginInfo}
                         onChange={handleChange}
                       />
-                      <label class="form-label" for="typeEmailX">
+                      <label className="form-label" htmlFor="typeEmailX">
                         Email
                       </label>
                     </div>
 
                     <div
                       data-mdb-input-init
-                      class="form-outline form-white mb-4"
+                      className="form-outline form-white mb-4"
                     >
                       <input
                         type="password"
                         id="typePasswordX"
-                        class="form-control form-control-lg"
+                        className="form-control form-control-lg"
                         name="password"
                         value={loginInfo.password}
                         onChange={handleChange}
                       />
-                      <label class="form-label" for="typePasswordX">
+                      <label className="form-label" htmlFor="typePasswordX">
                         Password
                       </label>
                     </div>
@@ -71,7 +73,7 @@ function LoginForm() {
                     <button
                       data-mdb-button-init
                       data-mdb-ripple-init
-                      class="btn btn-success btn-lg px-5"
+                      className="btn btn-success btn-lg px-5"
                       type="submit"
                     >
                       Login
@@ -79,9 +81,9 @@ function LoginForm() {
                   </div>
 
                   <div>
-                    <p class="mb-0">
+                    <p className="mb-0">
                       Don't have an account?{" "}
-                      <Link to="/signup" class=" fw-bold text-body">
+                      <Link to="/signup" className=" fw-bold text-body">
                         Sign Up
                       </Link>
 
