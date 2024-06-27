@@ -20,10 +20,20 @@ export default function MovieDetails() {
   }, [movies, movieId]);
 
   return (
-    <div>
+    <div className="details-container">
       {movie ? <MovieDetailsCard movie={movie} /> : <p>Loading...</p>}
       {movie && movie.trailerUrl && <TrailerPlayer movie={movie} />}
+      <div className="review-elements">
       <div className="review-container">
+        <h1
+          style={{
+            display: "inline-block",
+            borderBottom: "7px solid red",
+            color: "#fff",
+          }}
+        >
+          Reviews
+        </h1>
         {movie && movie.reviews.length ? (
           movie.reviews.map((review) => (
             <ReviewCard key={review._id} review={review} user={user} />
@@ -32,6 +42,7 @@ export default function MovieDetails() {
           <p>No reviews yet</p>
         )}
         <ReviewForm />
+      </div>
       </div>
     </div>
   );
