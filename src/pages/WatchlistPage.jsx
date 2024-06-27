@@ -26,9 +26,15 @@ export default function FavoritesPage() {
   // MESSAGE USER SEES IF THEY ARE NOT LOGGED IN
   if (!user) {
     return (
-      <p>
-        <Link to="/signup">Sign up</Link> or <Link to="/login">login</Link> to
-        add movies to your watchlist
+      <p className="auth-message">
+        <Link to="/signup" className="auth-link">
+          Sign up
+        </Link>
+        or
+        <Link to="/login" className="auth-link">
+          login
+        </Link>
+        to add movies to your watchlist
       </p>
     );
   }
@@ -41,19 +47,21 @@ export default function FavoritesPage() {
   // MESSAGE USER SEES IF THEY HAVE NO FAVORITES
   if (!watchlist || watchlist.length === 0) {
     return (
-      <div>
+      <div className="favorites-container">
         <h1>Watchlist</h1>
-        Your watchlist is empty
+        <p>Your watchlist is empty</p>
       </div>
     );
   }
 
   return (
-    <div>
+    <div className="favorites-container">
       <h1>Watchlist</h1>
-      {watchlist.map((movie) => (
-        <MovieCard key={movie._id} {...movie} />
-      ))}
+      <div className="favorites-list">
+        {watchlist.map((movie) => (
+          <MovieCard key={movie._id} {...movie} />
+        ))}
+      </div>
     </div>
   );
 }

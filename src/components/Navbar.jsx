@@ -67,7 +67,10 @@ function Navbar() {
             {/* CONDITIONALLY RENDERED BUTTON TO ADD NEW MOVIE IF LOGGED IN USER IS AN ADMIN */}
             <div>
               {user && user.isAdmin && (
-                <Link to="/movie/create" className="btn btn-outline-success">
+                <Link
+                  to="/movie/create"
+                  className="btn btn-outline-success text-white"
+                >
                   Add a new movie
                 </Link>
               )}
@@ -75,7 +78,10 @@ function Navbar() {
 
             {/* LOGIN/SIGNUP AND LOGOUT BUTTONS */}
             {user ? (
-              <button onClick={logout} className="btn btn-outline-success">
+              <button
+                onClick={logout}
+                className="btn btn-outline-success text-white"
+              >
                 Logout
               </button>
             ) : (
