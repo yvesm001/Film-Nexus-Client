@@ -6,7 +6,12 @@ export default function TrailerPlayer({ movie }) {
     <div className="trailer-container">
     <div className="movieTrailer">
       <h1 style={{ borderBottom: "7px solid red", color: "#fff" }}>Trailer</h1>
-      <ReactPlayer url={movie.trailerUrl} style={{ border: "2px solid red" }} />
+      <div className="videoPlayer">
+        <ReactPlayer
+          url={movie.trailerUrl}
+          style={{ border: "2px solid red" }}
+        />
+      </div>
     </div>
     </div>
   );

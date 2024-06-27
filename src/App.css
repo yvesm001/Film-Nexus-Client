@@ -57,7 +57,6 @@ body {
   padding: 16px 32px !important;
 }
 
-
 .movieDetails {
   display: flex;
   align-items: center;
@@ -254,7 +253,6 @@ p {
 
 /* END FAVORITES PAGE */
 
-
 /* Movie Details  */
 
 .movieDetails {
@@ -353,7 +351,6 @@ h4 {
 .review-content h3 {
   margin: 10px 0;
   color: #f8f9fa !important;
- 
 }
 
 .review-content p {
@@ -423,7 +420,6 @@ h4 {
   border: 1px solid #ced4da;
   border-radius: 8px;
   font-size: 16px;
-  
 }
 
 .review-form input[type="text"]:focus,
@@ -453,9 +449,7 @@ h4 {
   margin-bottom: 15px;
 }
 
-
 /* END REVIEW FORM */
-
 
 /* ADD A MOVIE HEADER */
 .create-container h1 {
@@ -466,6 +460,9 @@ h4 {
 
 .create-container {
   margin-top: 5rem;
+  text-align: center;
+  color: #f8f9fa;
+
 }
 /*  */
 
@@ -512,4 +509,53 @@ h4 {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 20%, grey) !important;
   width: 100vw;
   height: 100vw;
+
+/* Responsive */
+
+@media (max-width: 1000px) {
+  .movieList {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-direction: column !important;
+  }
+
+  .carousel-caption {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 8px;
+  }
+
+  .movieDetails {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-direction: column !important;
+  }
+  .moviePoster {
+    width: 18rem !important;
+    height: 18rem;
+    margin-bottom: 2rem;
+  }
+  .detailsCard {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-direction: column !important;
+    width: 25rem;
+  }
+  .movieTrailer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .videoPlayer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+  }
+
 }
