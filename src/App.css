@@ -58,6 +58,48 @@ body {
 }
 
 
+.movieDetails {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.detailsCard {
+  display: flex;
+  flex-direction: row !important;
+  background-color: #1b1b1b00 !important;
+  width: 80rem;
+  border: none !important;
+  color: #fff !important;
+}
+.detailsCard h1,
+h2,
+h3,
+h4 {
+  margin-left: 2rem;
+}
+.detailsCard h3,
+h4 {
+  margin-top: 5px;
+}
+
+.infoMovie {
+  display: flex;
+  flex-direction: column;
+}
+.movieTrailer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  margin: 5rem;
+  border-bottom: 10px red !important;
+}
+
+.moviePoster {
+  display: flex;
+  justify-content: start !important;
+  align-items: start !important;
+}
 
 /* carousel */
 .carousel-container {
@@ -360,7 +402,6 @@ h4 {
   background: #2c2c2c;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  
   color: #f8f9fa;
 }
 
@@ -372,14 +413,13 @@ h4 {
 }
 
 .review-form input[type="text"],
+.review-form input[type="number"],
 .review-form textarea {
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ced4da;
   border-radius: 8px;
-  background: #3a3a3a;
-  color: #f8f9fa;
   font-size: 16px;
   
 }
@@ -399,7 +439,6 @@ h4 {
   background: #444;
   color: #ffffff;
   font-size: 16px;
- 
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
@@ -412,4 +451,26 @@ h4 {
   margin-bottom: 15px;
 }
 
+
+/* END REVIEW FORM */
+
+
+/* ADD A MOVIE HEADER */
+.create-container h1 {
+  padding-top: 1rem;
+ text-align: center;
+ color: f8f9fa
+}
+/*  */
+
+/* WATCHLIST/FAVE ICON */
+.iconStyle {
+  cursor: pointer;
+  font-size: 2rem;
+  color: #f8f9fa;
+  padding: 5px;
+  cursor: pointer
+}
+
 /* END REVIEW FORM *
+

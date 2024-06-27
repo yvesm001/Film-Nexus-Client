@@ -2,6 +2,15 @@ import React, { useContext, useState, useEffect } from "react";
 import { MovieContext } from "../context/movie.context";
 import { AuthContext } from "../context/auth.context";
 import EditForm from "./EditForm";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPlus,
+  faHeart,
+  faMinus,
+  faHeartBroken,
+  faEdit,
+  faTrash,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function MovieDetailsCard({ movie }) {
   const [toggleEdit, setToggleEdit] = useState(false);
@@ -98,21 +107,33 @@ export default function MovieDetailsCard({ movie }) {
           <h4>{movie.genre.join(" • ")}</h4>
         </div>
       </div>
-      {user && (
-        <>
-          <button onClick={handleWatchlistAction}>
-            {inWatchlist ? "Remove from Watchlist" : "Add to Watchlist"}
-          </button>
-          <button onClick={handleFavoritesAction}>
-            {inFavorites ? "Remove from Favorites" : "Add to Favorites"}
-          </button>
-        </>
+      {user && !user.isAdmin && (
+        <div>
+          <FontAwesomeIcon
+            className="iconStyle"
+            icon={inWatchlist ? faMinus : faPlus}
+            onClick={handleWatchlistAction}
+          />
+          <FontAwesomeIcon
+            className="iconStyle"
+            icon={inFavorites ? faHeartBroken : faHeart}
+            onClick={handleFavoritesAction}
+          />
+        </div>
       )}
       {user && user.isAdmin && (
-        <>
-          <button onClick={() => setToggleEdit(!toggleEdit)}>Edit</button>
-          <button onClick={() => deleteMovie(movie._id)}>Delete</button>
-        </>
+        <div>
+          <FontAwesomeIcon
+            className="iconStyle"
+            icon={faEdit}
+            onClick={() => setToggleEdit(!toggleEdit)}
+          />
+          <FontAwesomeIcon
+            className="iconStyle"
+            icon={faTrash}
+            onClick={() => deleteMovie(movie._id)}
+          />
+        </div>
       )}
       {toggleEdit && (
         <EditForm toggleEdit={toggleEdit} setToggleEdit={setToggleEdit} />

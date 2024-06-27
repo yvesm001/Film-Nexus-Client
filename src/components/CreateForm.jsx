@@ -27,12 +27,14 @@ export default function CreateForm() {
   };
 
   return (
+    <div className="create-container">
+    <h1>Add a Movie</h1>
     <form
       onSubmit={(e) => {
         e.preventDefault();
         createMovie(movieInfo);
       }}
-      className="d-flex flex-column justify-content-center align-items-center gap-1"
+      className="review-form"
     >
       <label htmlFor="title">Title: </label>
       <input
@@ -107,5 +109,6 @@ export default function CreateForm() {
 
       <button type="submit">Add Movie</button>
     </form>
+    </div>
   );
 }
