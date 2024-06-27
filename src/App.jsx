@@ -5,12 +5,12 @@ import SignupPage from "./pages/SignupPage";
 import Homepage from "./pages/Homepage";
 import Navbar from "./components/Navbar";
 import FavoritesPage from "./pages/FavoritesPage";
+import ErrorPage from "./pages/ErrorPage";
 import MovieDetails from "./pages/MovieDetails";
 import CreateMoviePage from "./pages/CreateMoviePage";
 import { Toaster, toast } from "react-hot-toast";
 import WatchlistPage from "./pages/WatchlistPage";
 import SearchPage from "./pages/SearchPage";
-
 
 function App() {
   return (
@@ -28,6 +28,7 @@ function App() {
         <Route path="/movies/:movieId" element={<MovieDetails />} />
 
         <Route path="/movie/create" element={<CreateMoviePage />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>
   );

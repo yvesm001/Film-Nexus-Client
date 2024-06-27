@@ -98,11 +98,14 @@ export default function MovieDetailsCard({ movie }) {
           alt="moviePoster"
           style={{ width: "15vw" }}
         />
-        <h1>
-          {movie.title} ({movie.releaseYear})
-        </h1>
-        <h2>⭐{Math.round(movie.rating)}</h2>
-        <h3>{movie.description}</h3>
+        <div className="infoMovie">
+          <h1>
+            {movie.title} ({movie.releaseYear}) ⭐{Math.round(movie.rating)}
+          </h1>
+          <h2>{movie.description}</h2>
+          <h3>Genre:</h3>
+          <h4>{movie.genre.join(" • ")}</h4>
+        </div>
       </div>
       {user && !user.isAdmin && (
         <div>

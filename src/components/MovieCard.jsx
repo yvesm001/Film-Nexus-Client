@@ -16,7 +16,7 @@ export default function MovieCard({
 }) {
   return (
     <div className="movieCard">
-      <div className="card" style={{ width: "22rem", border: "5px solid red" }}>
+      <div className="card" style={{ width: "22rem", border: "3px solid red" }}>
         <img
           src={posterImg}
           className=" image card-img-top"
@@ -25,7 +25,7 @@ export default function MovieCard({
         <div className="card-body" style={{ backgroundColor: "#41bc93" }}>
           <div className="middle">
             <Link to={`/movies/${_id}`} className="detailsBtn btn btn-danger">
-              ▶️
+              ▷
             </Link>
             <p className="text">⭐{Math.round(rating)}</p>
             <p className="card-title">

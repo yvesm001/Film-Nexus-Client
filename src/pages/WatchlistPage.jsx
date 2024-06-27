@@ -49,7 +49,7 @@ export default function FavoritesPage() {
     return (
       <div className="favorites-container">
         <h1>Watchlist</h1>
-        Your watchlist is empty
+        <p>Your watchlist is empty</p>
       </div>
     );
   }
