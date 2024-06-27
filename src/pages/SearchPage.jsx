@@ -13,7 +13,7 @@ const SearchPage = () => {
   };
 
   return (
-    <>
+    <div className="search-page">
       <div className="search-container">
         <h2>Search</h2>
         <form className="search-form" onSubmit={handleSearch}>
@@ -39,7 +39,7 @@ const SearchPage = () => {
           <div>No search results</div>
         )}
       </div>
-    </>
+    </div>
   );
 };
 

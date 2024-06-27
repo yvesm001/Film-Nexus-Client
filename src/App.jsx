@@ -12,6 +12,7 @@ import { Toaster, toast } from "react-hot-toast";
 import WatchlistPage from "./pages/WatchlistPage";
 import SearchPage from "./pages/SearchPage";
 
+
 function App() {
   return (
     <div>
@@ -26,7 +27,7 @@ function App() {
         <Route path="/watchlist" element={<WatchlistPage />} />
 
         <Route path="/movies/:movieId" element={<MovieDetails />} />
-
+        
         <Route path="/movie/create" element={<CreateMoviePage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
