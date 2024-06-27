@@ -71,24 +71,32 @@ export default function MovieDetailsCard({ movie }) {
   };
 
   return (
-    <div className="movieDetails">
-      <img
-        src={movie.backdropImg}
-        alt="coverImg"
-        className="coverImg"
-        style={{ width: "100%" }}
-      />
+    <div
+      className="movieDetails"
+      style={{
+        backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 1)),url(${movie.backdropImg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        width: "100%",
+        height: "117vh",
+        marginTop: "2rem",
+      }}
+    >
       <div className="card detailsCard">
         <img
           src={movie.posterImg}
           alt="moviePoster"
           style={{ width: "15vw" }}
         />
-        <h1>
-          {movie.title} ({movie.releaseYear})
-        </h1>
-        <h2>⭐{Math.round(movie.rating)}</h2>
-        <h3>{movie.description}</h3>
+        <div className="infoMovie">
+          <h1>
+            {movie.title} ({movie.releaseYear}) ⭐{Math.round(movie.rating)}
+          </h1>
+          <h2>{movie.description}</h2>
+          <h3>Genre:</h3>
+          <h4>{movie.genre.join(" • ")}</h4>
+        </div>
       </div>
       {user && (
         <>

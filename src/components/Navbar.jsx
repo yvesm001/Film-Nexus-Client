@@ -75,7 +75,10 @@ function Navbar() {
 
             {/* LOGIN/SIGNUP AND LOGOUT BUTTONS */}
             {user ? (
-              <button onClick={logout} className="btn btn-outline-success">
+              <button
+                onClick={logout}
+                className="btn btn-outline-success text-white"
+              >
                 Logout
               </button>
             ) : (
