@@ -23,6 +23,10 @@ export default function FavoritesPage() {
     fetchFavorites();
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // MESSAGE USER SEES IF THEY ARE NOT LOGGED IN
   if (!user) {
     return (

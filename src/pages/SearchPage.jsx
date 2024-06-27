@@ -1,11 +1,15 @@
 // src/components/SearchPage.jsx
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { MovieContext } from "../context/movie.context";
 import MovieCard from "../components/MovieCard";
 
 const SearchPage = () => {
   const { searchMovies, searchResults } = useContext(MovieContext);
   const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleSearch = (e) => {
     e.preventDefault();
