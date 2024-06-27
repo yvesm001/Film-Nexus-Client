@@ -9,7 +9,7 @@ function MovieProvider({ children }) {
   const [movies, setMovies] = useState(null);
   const [watchlist, setWatchlist] = useState(null);
   const [searchResults, setSearchResults] = useState(null);
-  const [favorites, setFavorites] = useState(null)
+  const [favorites, setFavorites] = useState(null);
   const navigate = useNavigate();
 
   const getAllMovies = async () => {
@@ -151,7 +151,6 @@ function MovieProvider({ children }) {
   };
 
 
- 
   return (
     <MovieContext.Provider
       value={{
@@ -170,7 +169,6 @@ function MovieProvider({ children }) {
         addToFavorites,
         removeFromFavorites,
         getFavorites,
-        
       }}
     >
       {children}
