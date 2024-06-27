@@ -51,7 +51,8 @@ export default function ReviewCard({ review, user }) {
     <div>
       {user && user._id === review.creator._id && isEditing ? (
         <div>
-          <form onSubmit={handleEdit}>
+          <form onSubmit={handleEdit} className="review-form">
+            <h1>Edit review</h1>
             <label htmlFor="title">Title: </label>
             <input
               type="text"
@@ -74,40 +75,46 @@ export default function ReviewCard({ review, user }) {
               ratingValue={editedRating}
               initialValue={editedRating}
               name="rating"
+              className="mb-3"
             />
 
-            <button type="submit">Save</button>
+            <button type="submit" className="mb-3">
+              Save
+            </button>
             <button type="button" onClick={() => setIsEditing(false)}>
               Cancel
             </button>
           </form>
         </div>
       ) : (
-        <div>
-          <h1>Review Cards</h1>
-          <img src={review.creator.profilePic} alt="Profile" />
-          <h3>{review.title}</h3>
-          <p>{review.rating}⭐</p>
-          <p>{review.review}</p>
-          <p>
-            {new Date(review.createdAt).toLocaleString("en-US", {
-              weekday: "short",
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-              hour: "numeric",
-              minute: "numeric",
-            })}
-          </p>
-          <p>{review.creator.username}</p>
-          {user && user._id === review.creator._id && (
-            <button onClick={() => setIsEditing(true)}>✏️</button>
-          )}
-          {user && (user._id === review.creator._id || user.isAdmin) && (
-            <>
+        <div className="review-card">
+          <div className="profile-container">
+            <img src={review.creator.profilePic} alt="Profile" />
+          </div>
+          <div className="review-content">
+            <h3>{review.title}</h3>
+            <p className="review-rating">{review.rating}⭐</p>
+            <p>{review.review}</p>
+            <p className="review-date">
+              {new Date(review.createdAt).toLocaleString("en-US", {
+                weekday: "short",
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+                hour: "numeric",
+                minute: "numeric",
+              })}
+            </p>
+            <p className="review-username">-{review.creator.username}</p>
+          </div>
+          <div className="review-actions">
+            {user && user._id === review.creator._id && (
+              <button onClick={() => setIsEditing(true)}>✏️</button>
+            )}
+            {user && (user._id === review.creator._id || user.isAdmin) && (
               <button onClick={() => handleDelete(review._id)}>🗑</button>
-            </>
-          )}
+            )}
+          </div>
         </div>
       )}
     </div>

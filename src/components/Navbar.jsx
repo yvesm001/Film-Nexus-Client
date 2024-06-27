@@ -32,46 +32,46 @@ function Navbar() {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/search">
+                <NavLink className="nav-link active" to="/search">
                   Search
                 </NavLink>
               </li>
-              <li className="nav-item dropdown">
-                <NavLink
-                  className="nav-link dropdown-toggle"
-                  to="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  My List
-                </NavLink>
-                <ul className="dropdown-menu">
-                  <li>
-                    <NavLink className="dropdown-item" to="/favorites">
-                      Favorites
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink className="dropdown-item" to="/watchlist">
-                      Watchlist
-                    </NavLink>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                </ul>
-              </li>
-            </ul>
 
-            {/* CONDITIONALLY RENDERED BUTTON TO ADD NEW MOVIE IF LOGGED IN USER IS AN ADMIN */}
-            <div>
-              {user && user.isAdmin && (
-                <Link to="/movie/create" className="btn btn-outline-success">
-                  Add a new movie
-                </Link>
+              {user && user.isAdmin ? (
+                <li className="nav-item">
+                  <NavLink className="nav-link active" to="/movie/create">
+                    Add Movie
+                  </NavLink>
+                </li>
+              ) : (
+                <li className="nav-item dropdown">
+                  <NavLink
+                    className="nav-link dropdown-toggle"
+                    to="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    My List
+                  </NavLink>
+                  <ul className="dropdown-menu">
+                    <li>
+                      <NavLink className="dropdown-item" to="/favorites">
+                        Favorites
+                      </NavLink>
+                    </li>
+                    <li>
+                      <hr className="dropdown-divider" />
+                    </li>
+                    <li>
+                      <NavLink className="dropdown-item" to="/watchlist">
+                        Watchlist
+                      </NavLink>
+                    </li>
+                  </ul>
+                </li>
               )}
-            </div>
+            </ul>
 
             {/* LOGIN/SIGNUP AND LOGOUT BUTTONS */}
             {user ? (

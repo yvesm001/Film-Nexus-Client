@@ -23,14 +23,6 @@ export default function MovieDetails() {
     <div>
       {movie ? <MovieDetailsCard movie={movie} /> : <p>Loading...</p>}
       {movie && movie.trailerUrl && <TrailerPlayer movie={movie} />}
-      {!user || user.isAdmin ? (
-        <p>
-          <Link to="/login">Login</Link> to leave a review.
-        </p>
-      ) : (
-        <ReviewForm />
-      )}
-
       {movie && movie.reviews.length ? (
         movie.reviews.map((review) => (
           <ReviewCard key={review._id} review={review} user={user} />
@@ -38,6 +30,7 @@ export default function MovieDetails() {
       ) : (
         <p>No reviews yet</p>
       )}
+      <ReviewForm />
     </div>
   );
 }

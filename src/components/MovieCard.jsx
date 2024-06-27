@@ -19,7 +19,7 @@ export default function MovieCard({
       <div className="card" style={{ width: "22rem", border: "5px solid red" }}>
         <img
           src={posterImg}
-          className=" imgage card-img-top"
+          className=" image card-img-top"
           alt="Movie Poster"
         />
         <div className="card-body" style={{ backgroundColor: "#41bc93" }}>
