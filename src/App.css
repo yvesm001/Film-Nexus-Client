@@ -472,5 +472,10 @@ h4 {
   cursor: pointer
 }
 
-/* END REVIEW FORM *
+/* END REVIEW FORM */
 
+.img-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
