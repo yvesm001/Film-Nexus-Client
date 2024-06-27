@@ -23,14 +23,16 @@ export default function MovieDetails() {
     <div>
       {movie ? <MovieDetailsCard movie={movie} /> : <p>Loading...</p>}
       {movie && movie.trailerUrl && <TrailerPlayer movie={movie} />}
-      {movie && movie.reviews.length ? (
-        movie.reviews.map((review) => (
-          <ReviewCard key={review._id} review={review} user={user} />
-        ))
-      ) : (
-        <p>No reviews yet</p>
-      )}
-      <ReviewForm />
+      <div className="review-container">
+        {movie && movie.reviews.length ? (
+          movie.reviews.map((review) => (
+            <ReviewCard key={review._id} review={review} user={user} />
+          ))
+        ) : (
+          <p>No reviews yet</p>
+        )}
+        <ReviewForm />
+      </div>
     </div>
   );
 }
