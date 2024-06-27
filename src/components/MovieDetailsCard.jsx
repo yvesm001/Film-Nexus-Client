@@ -97,6 +97,7 @@ export default function MovieDetailsCard({ movie }) {
           src={movie.posterImg}
           alt="moviePoster"
           style={{ width: "15vw" }}
+          className="moviePoster"
         />
         <div className="infoMovie">
           <h1>

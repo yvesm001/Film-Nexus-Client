@@ -1,4 +1,3 @@
-
 import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { MovieContext } from "../context/movie.context";
@@ -29,6 +28,18 @@ function MovieCarousel() {
         data-interval="3000"
       >
         <div className="carousel-inner">
+          <h1
+            style={{
+              borderBottom: "7px solid red",
+              color: "#fff",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              marginBottom: "1rem",
+            }}
+          >
+            Now watching
+          </h1>
           {movies ? (
             movies.map((movie, index) => (
               <div
