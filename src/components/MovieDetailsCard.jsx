@@ -71,10 +71,25 @@ export default function MovieDetailsCard({ movie }) {
   };
 
   return (
-    <div>
-      <h1>{movie.title}</h1>
-      <h2>{movie.releaseYear}</h2>
-      <h3>{movie.description}</h3>
+    <div className="movieDetails">
+      <img
+        src={movie.backdropImg}
+        alt="coverImg"
+        className="coverImg"
+        style={{ width: "100%" }}
+      />
+      <div className="card detailsCard">
+        <img
+          src={movie.posterImg}
+          alt="moviePoster"
+          style={{ width: "15vw" }}
+        />
+        <h1>
+          {movie.title} ({movie.releaseYear})
+        </h1>
+        <h2>⭐{Math.round(movie.rating)}</h2>
+        <h3>{movie.description}</h3>
+      </div>
       {user && (
         <>
           <button onClick={handleWatchlistAction}>
