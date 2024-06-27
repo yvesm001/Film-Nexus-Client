@@ -1,5 +1,7 @@
 body {
-  background-color: #000000b3 !important;
+  background: linear-gradient(to bottom, rgba(0,0,0.6) 50%, #000000b3);
+  
+  
 }
 /* Movie Card */
 .movieList {
@@ -292,6 +294,9 @@ h4 {
   margin: 5rem;
   border-bottom: 10px red !important;
 }
+.movieTrailer h1 {
+ margin-bottom: 20px
+}
 
 .moviePoster {
   display: flex;
@@ -312,7 +317,7 @@ h4 {
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 600px;
+  width: 650px;
   margin: 20px auto;
   padding: 20px;
   background: #2c2c2c;
@@ -343,6 +348,7 @@ h4 {
   flex-direction: column;
   text-align: center !important;
   align-items: center !important;
+  margin-right: 20px;
 }
 
 .review-content h3 {
@@ -465,7 +471,33 @@ h4 {
   cursor: pointer;
 }
 
-/* END REVIEW FORM *
+/* END REVIEW FORM */
+
+.img-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.trailer-container {
+  display: flex;
+  justify-content: center; 
+}
+
+.review-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  margin: 5rem;
+}
+
+.review-elements {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 /* Responsive */
 
