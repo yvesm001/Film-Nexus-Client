@@ -4,13 +4,14 @@ import { MovieContext } from "../context/movie.context";
 import toast from "react-hot-toast";
 import { Rating } from "react-simple-star-rating";
 import api from "../services/api";
+import { AuthContext } from "../context/auth.context";
+import { Link } from "react-router-dom";
 
 export default function ReviewForm() {
+  const { user } = useContext(AuthContext);
   const [review, setReview] = useState({ title: "", rating: 0, review: "" });
   const { movieId } = useParams();
   const { getAllMovies } = useContext(MovieContext);
-  
-  
 
   const handleChange = (e) => {
     setReview((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -29,7 +30,6 @@ export default function ReviewForm() {
         toast.success("Review submitted");
         getAllMovies();
         setReview({ title: "", rating: 0, review: "" });
-        
       }
     } catch (error) {
       console.log(error);
@@ -42,28 +42,43 @@ export default function ReviewForm() {
   }, [review]);
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="title">Title: </label>
-      <input
-        type="text"
-        name="title"
-        onChange={handleChange}
-        value={review.title}
-      />
+    <>
+      {!user || user.isAdmin ? (
+        <p className="review-form">
+          <Link to="/login">Login</Link> to leave a review.
+        </p>
+      ) : (
+        <form onSubmit={handleSubmit} className="review-form">
+          <h1>Leave a review</h1>
+          <label htmlFor="title">Title:</label>
+          <input
+            type="text"
+            name="title"
+            onChange={handleChange}
+            value={review.title}
+          />
 
-      <label htmlFor="review">Review: </label>
-      <textarea name="review" onChange={handleChange} value={review.review} />
+          <label htmlFor="review">Review:</label>
+          <textarea
+            name="review"
+            onChange={handleChange}
+            value={review.review}
+          />
 
-      <label htmlFor="rating">Rating:</label>
-      <Rating
-        allowFraction={true}
-        onClick={handleRating}
-        ratingValue={review.rating}
-        initialValue={0}
-        name="rating"
-      />
+          <label htmlFor="rating">Rating:</label>
+          <div className="rating-container">
+            <Rating
+              allowFraction={true}
+              onClick={handleRating}
+              ratingValue={review.rating}
+              initialValue={0}
+              name="rating"
+            />
+          </div>
 
-      <button type="submit">Submit Review</button>
-    </form>
+          <button type="submit">Submit Review</button>
+        </form>
+      )}
+    </>
   );
 }

@@ -10,7 +10,7 @@ import ErrorPage from "./pages/ErrorPage";
 import MovieDetails from "./pages/MovieDetails";
 import CreateMoviePage from "./pages/CreateMoviePage";
 
-import { Toaster } from "react-hot-toast";
+import { Toaster, toast } from "react-hot-toast";
 import WatchlistPage from "./pages/WatchlistPage";
 import SearchPage from "./pages/SearchPage";
 function App() {
