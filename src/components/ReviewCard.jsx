@@ -3,6 +3,8 @@ import { MovieContext } from "../context/movie.context";
 import { Rating } from "react-simple-star-rating";
 import api from "../services/api";
 import toast from "react-hot-toast";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit, faTrash, faStar } from "@fortawesome/free-solid-svg-icons";
 
 export default function ReviewCard({ review, user }) {
   const { getAllMovies } = useContext(MovieContext);
@@ -47,7 +49,6 @@ export default function ReviewCard({ review, user }) {
   };
 
   return (
-    
     //LINES 51-84 ARE WHAT USER SEES AFTER CLICKING EDIT ON REVIEW, LINES AFTER IS THE REGULAR REVIEW CARD
     <div>
       {user && user._id === review.creator._id && isEditing ? (
@@ -94,7 +95,10 @@ export default function ReviewCard({ review, user }) {
           </div>
           <div className="review-content">
             <h3>{review.title}</h3>
-            <p className="review-rating">{review.rating}⭐</p>
+            <p className="review-rating">
+              {review.rating}{" "}
+              <FontAwesomeIcon icon={faStar} />
+            </p>
             <p>{review.review}</p>
             <p className="review-date">
               {new Date(review.createdAt).toLocaleString("en-US", {
@@ -110,10 +114,18 @@ export default function ReviewCard({ review, user }) {
           </div>
           <div className="review-actions">
             {user && user._id === review.creator._id && (
-              <button onClick={() => setIsEditing(true)}>✏️</button>
+              <FontAwesomeIcon
+                className="reviewIconStyle"
+                icon={faEdit}
+                onClick={() => setIsEditing(true)}
+              />
             )}
             {user && (user._id === review.creator._id || user.isAdmin) && (
-              <button onClick={() => handleDelete(review._id)}>🗑</button>
+              <FontAwesomeIcon
+                className="reviewIconStyle"
+                icon={faTrash}
+                onClick={() => handleDelete(review._id)}
+              />
             )}
           </div>
         </div>
