@@ -15,6 +15,7 @@ export default function MovieCard({
   popularity,
 }) {
   return (
+    <Link to={`/movies/${_id}`} >
     <div className="movieCard">
       <div className="card" style={{ width: "22rem", border: "none" }}>
         <img
@@ -24,10 +25,7 @@ export default function MovieCard({
         />
         <div className="card-body" style={{ backgroundColor: "#41bc93" }}>
           <div className="middle">
-            <Link to={`/movies/${_id}`} className="detailsBtn btn btn-danger">
-              ▷
-            </Link>
-            <p className="text">⭐{Math.round(rating)}</p>
+            <p className="text">⭐{rating.toFixed(1)}</p>
             <p className="card-title">
               {title} ({releaseYear})
             </p>
@@ -35,5 +33,6 @@ export default function MovieCard({
         </div>
       </div>
     </div>
+    </Link>
   );
 }
