@@ -165,6 +165,7 @@ function MovieProvider({ children }) {
         removeFromWatchlist,
         searchMovies,
         searchResults,
+        setSearchResults,
         favorites,
         addToFavorites,
         removeFromFavorites,
