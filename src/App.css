@@ -1,5 +1,5 @@
 body {
-  background: linear-gradient(to bottom, rgba(0,0,0.6) 50%, #000000b3);
+  background: linear-gradient(to bottom, rgba(0, 0, 0.6) 50%, #000000b3);
 }
 /* Movie Card */
 .movieList {
@@ -294,7 +294,7 @@ h4 {
   border-bottom: 10px red !important;
 }
 .movieTrailer h1 {
- margin-bottom: 20px
+  margin-bottom: 20px;
 }
 
 .moviePoster {
@@ -456,15 +456,14 @@ h4 {
 /* ADD A MOVIE HEADER */
 .create-container h1 {
   padding-top: 1rem;
- text-align: center;
- color: #f8f9fa;
+  text-align: center;
+  color: #f8f9fa;
 }
 
 .create-container {
   margin-top: 5rem;
   text-align: center;
   color: #f8f9fa;
-
 }
 /*  */
 
@@ -486,10 +485,9 @@ h4 {
   align-items: center;
 }
 
-
 .trailer-container {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
 }
 
 .review-container {
@@ -557,5 +555,4 @@ h4 {
     align-items: center;
     width: 80vw;
   }
-
 }
