@@ -477,6 +477,15 @@ h4 {
   margin-top: 15px;
 }
 
+.reviewIconStyle {
+  cursor: pointer;
+  font-size: 1.4rem;
+  color: #f8f9fa;
+  padding-left: 20px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
 /* END REVIEW FORM */
 
 .img-icons {
@@ -506,6 +515,13 @@ h4 {
 
 .search-page {
   padding-top: 1rem;
+}
+
+.custom-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem; 
+  margin: 0 10px;
 }
 
 /* Responsive */

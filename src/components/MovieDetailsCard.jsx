@@ -10,6 +10,7 @@ import {
   faHeartBroken,
   faEdit,
   faTrash,
+  faStar,
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function MovieDetailsCard({ movie }) {
@@ -93,57 +94,54 @@ export default function MovieDetailsCard({ movie }) {
       }}
     >
       <div className="card detailsCard">
-      <div className="img-icons">
-        <img
-          src={movie.posterImg}
-          alt="moviePoster"
-          style={{ width: "15vw" }}
-          className="moviePoster"
-        />
-        {user && !user.isAdmin && (
-        <div>
-          <FontAwesomeIcon
-            className="iconStyle"
-            icon={inWatchlist ? faMinus : faPlus}
-            onClick={handleWatchlistAction}
+        <div className="img-icons">
+          <img
+            src={movie.posterImg}
+            alt="moviePoster"
+            style={{ width: "15vw" }}
+            className="moviePoster"
           />
-          <FontAwesomeIcon
-            className="iconStyle"
-            icon={inFavorites ? faHeartBroken : faHeart}
-            onClick={handleFavoritesAction}
-          />
-        </div>
-      )}
-      {user && user.isAdmin && (
-        <div>
-          <FontAwesomeIcon
-            className="iconStyle"
-            icon={faEdit}
-            onClick={() => setToggleEdit(!toggleEdit)}
-          />
-          <FontAwesomeIcon
-            className="iconStyle"
-            icon={faTrash}
-            onClick={() => deleteMovie(movie._id)}
-          />
-        </div>
-      )}
-      {toggleEdit && (
-        <EditForm toggleEdit={toggleEdit} setToggleEdit={setToggleEdit} />
-      )}
+          {user && !user.isAdmin && (
+            <div>
+              <FontAwesomeIcon
+                className="iconStyle"
+                icon={inWatchlist ? faMinus : faPlus}
+                onClick={handleWatchlistAction}
+              />
+              <FontAwesomeIcon
+                className="iconStyle"
+                icon={inFavorites ? faHeartBroken : faHeart}
+                onClick={handleFavoritesAction}
+              />
+            </div>
+          )}
+          {user && user.isAdmin && (
+            <div>
+              <FontAwesomeIcon
+                className="iconStyle"
+                icon={faEdit}
+                onClick={() => setToggleEdit(!toggleEdit)}
+              />
+              <FontAwesomeIcon
+                className="iconStyle"
+                icon={faTrash}
+                onClick={() => deleteMovie(movie._id)}
+              />
+            </div>
+          )}
+          {toggleEdit && (
+            <EditForm toggleEdit={toggleEdit} setToggleEdit={setToggleEdit} />
+          )}
         </div>
         <div className="infoMovie">
           <h1>
-            {movie.title} ({movie.releaseYear}) ⭐{Math.round(movie.rating)}
+            {movie.title} ({movie.releaseYear}) ⭐{movie.rating.toFixed(1)}
           </h1>
           <h2>{movie.description}</h2>
           <h3>Genre:</h3>
           <h4>{movie.genre.join(" • ")}</h4>
         </div>
       </div>
-
-
-      
     </div>
   );
 }
