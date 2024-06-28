@@ -22,11 +22,11 @@ export default function EditForm({ toggleEdit, setToggleEdit }) {
     movies && setCurrMovie(movies.find((movie) => movie._id === movieId));
   }, [toggleEdit]);
   return (
-    <>
+    <div>
     <h1>Edit Form</h1>
     {currMovie && (
         
-      <form className="d-flex flex-column justify-content-center align-items-center gap-1"
+      <form className="review-form"
         onSubmit={(e) => {
           e.preventDefault();
           updateMovie(currMovie, movieId, setToggleEdit);
@@ -106,5 +106,5 @@ export default function EditForm({ toggleEdit, setToggleEdit }) {
         <button type="submit">Save Changes</button>
       </form>
     )}
-    </>);
+    </div>);
 }

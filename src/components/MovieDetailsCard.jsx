@@ -93,22 +93,14 @@ export default function MovieDetailsCard({ movie }) {
       }}
     >
       <div className="card detailsCard">
+      <div className="img-icons">
         <img
           src={movie.posterImg}
           alt="moviePoster"
           style={{ width: "15vw" }}
           className="moviePoster"
         />
-        <div className="infoMovie">
-          <h1>
-            {movie.title} ({movie.releaseYear}) ⭐{Math.round(movie.rating)}
-          </h1>
-          <h2>{movie.description}</h2>
-          <h3>Genre:</h3>
-          <h4>{movie.genre.join(" • ")}</h4>
-        </div>
-      </div>
-      {user && !user.isAdmin && (
+        {user && !user.isAdmin && (
         <div>
           <FontAwesomeIcon
             className="iconStyle"
@@ -139,6 +131,19 @@ export default function MovieDetailsCard({ movie }) {
       {toggleEdit && (
         <EditForm toggleEdit={toggleEdit} setToggleEdit={setToggleEdit} />
       )}
+        </div>
+        <div className="infoMovie">
+          <h1>
+            {movie.title} ({movie.releaseYear}) ⭐{Math.round(movie.rating)}
+          </h1>
+          <h2>{movie.description}</h2>
+          <h3>Genre:</h3>
+          <h4>{movie.genre.join(" • ")}</h4>
+        </div>
+      </div>
+
+
+      
     </div>
   );
 }

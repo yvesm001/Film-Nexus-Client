@@ -16,7 +16,7 @@ export default function MovieCard({
 }) {
   return (
     <div className="movieCard">
-      <div className="card" style={{ width: "22rem", border: "3px solid red" }}>
+      <div className="card" style={{ width: "22rem", border: "none" }}>
         <img
           src={posterImg}
           className=" image card-img-top"

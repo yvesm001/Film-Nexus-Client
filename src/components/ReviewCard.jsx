@@ -47,6 +47,7 @@ export default function ReviewCard({ review, user }) {
   };
 
   return (
+    
     //LINES 51-84 ARE WHAT USER SEES AFTER CLICKING EDIT ON REVIEW, LINES AFTER IS THE REGULAR REVIEW CARD
     <div>
       {user && user._id === review.creator._id && isEditing ? (
