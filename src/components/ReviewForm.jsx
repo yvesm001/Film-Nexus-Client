@@ -13,12 +13,19 @@ export default function ReviewForm() {
   const { movieId } = useParams();
   const { getAllMovies } = useContext(MovieContext);
 
+  const [rating, setRating] = useState(0);
+
+  const handleReset = () => {
+    setRating(0);
+  };
+
   const handleChange = (e) => {
     setReview((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleRating = (rating) => {
     setReview((prev) => ({ ...prev, rating: rating }));
+    setRating(rating);
   };
 
   const handleSubmit = async (e) => {
@@ -30,6 +37,7 @@ export default function ReviewForm() {
         toast.success("Review submitted");
         getAllMovies();
         setReview({ title: "", rating: 0, review: "" });
+        handleReset();
       }
     } catch (error) {
       console.log(error);
@@ -70,8 +78,8 @@ export default function ReviewForm() {
             <Rating
               allowFraction={true}
               onClick={handleRating}
-              ratingValue={review.rating}
-              initialValue={0}
+              ratingValue={rating}
+              initialValue={rating}
               name="rating"
             />
           </div>
