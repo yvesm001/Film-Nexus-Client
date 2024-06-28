@@ -12,6 +12,7 @@ body {
   justify-content: space-evenly !important;
   flex-wrap: wrap !important;
   gap: 50px;
+  padding-bottom: 2rem;
 }
 .card-body {
   display: flex !important;
