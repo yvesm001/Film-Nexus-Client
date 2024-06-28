@@ -23,9 +23,14 @@ export default function FavoritesPage() {
     fetchWatchlist();
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // MESSAGE USER SEES IF THEY ARE NOT LOGGED IN
   if (!user) {
     return (
+      <div className="search-page">
       <p className="auth-message">
         <Link to="/signup" className="auth-link">
           Sign up
@@ -36,25 +41,29 @@ export default function FavoritesPage() {
         </Link>
         to add movies to your watchlist
       </p>
+      </div>
     );
   }
 
   // MESSAGE USER SEES WHILE FAVORITES ARE BEING FETCHED
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="search-page">Loading...</div>;
   }
 
   // MESSAGE USER SEES IF THEY HAVE NO FAVORITES
   if (!watchlist || watchlist.length === 0) {
     return (
+      <div className="search-page">
       <div className="favorites-container">
         <h1>Watchlist</h1>
         <p>Your watchlist is empty</p>
+      </div>
       </div>
     );
   }
 
   return (
+    <div className="search-page">
     <div className="favorites-container">
       <h1>Watchlist</h1>
       <div className="favorites-list">
@@ -62,6 +71,7 @@ export default function FavoritesPage() {
           <MovieCard key={movie._id} {...movie} />
         ))}
       </div>
+    </div>
     </div>
   );
 }

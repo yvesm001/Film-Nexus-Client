@@ -131,9 +131,7 @@ h4 {
 /* SEARCH PAGE */
 
 .search-container {
-  /* max-width: 600px; */
   max-width: 1200px;
-  /* background: #ffffff; */
   background: #333;
   margin: 0 auto;
   margin-top: 5rem;
@@ -194,6 +192,8 @@ h4 {
   flex-direction: row !important;
   justify-content: space-evenly !important;
   flex-wrap: wrap !important;
+  width: 100vw;
+  height: 99vw;
 }
 
 /* END SEARCH PAGE */
@@ -223,6 +223,7 @@ p {
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  row-gap: 2rem;
 }
 
 .favorites-container .movie-card {
@@ -242,7 +243,7 @@ p {
   color: #f8f9fa;
   font-size: 1.2rem;
   margin-top: 5rem;
-  background: #444;
+  height: 100vw;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -396,7 +397,7 @@ h4 {
 
 /* REVIEW FORM */
 .review-form {
-  max-width: 600px;
+  width: 650px;
   margin: 20px auto;
   padding: 20px;
   background: #2c2c2c;
@@ -456,7 +457,13 @@ h4 {
 .create-container h1 {
   padding-top: 1rem;
   text-align: center;
-  color: f8f9fa;
+  color: #f8f9fa;
+}
+
+.create-container {
+  margin-top: 5rem;
+  text-align: center;
+  color: #f8f9fa;
 }
 /*  */
 
@@ -467,6 +474,7 @@ h4 {
   color: #f8f9fa;
   padding: 5px;
   cursor: pointer;
+  margin-top: 15px;
 }
 
 /* END REVIEW FORM */
@@ -494,6 +502,10 @@ h4 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.search-page {
+  padding-top: 1rem;
 }
 
 /* Responsive */
