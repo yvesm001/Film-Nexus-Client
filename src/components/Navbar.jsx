@@ -75,7 +75,7 @@ function Navbar() {
 
             {/* LOGIN/SIGNUP AND LOGOUT BUTTONS */}
             {user ? (
-              <Link onClick={logout} className="custom-link">
+              <Link to="/" onClick={logout} className="custom-link">
                 Logout
               </Link>
             ) : (
