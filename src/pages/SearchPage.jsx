@@ -4,11 +4,12 @@ import { MovieContext } from "../context/movie.context";
 import MovieCard from "../components/MovieCard";
 
 const SearchPage = () => {
-  const { searchMovies, searchResults } = useContext(MovieContext);
+  const { searchMovies, searchResults, setSearchResults } = useContext(MovieContext);
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    setSearchResults("")
   }, []);
 
   const handleSearch = (e) => {
