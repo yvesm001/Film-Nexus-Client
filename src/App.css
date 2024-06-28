@@ -1,5 +1,8 @@
 body {
-  background: linear-gradient(to bottom, rgba(0, 0, 0.6) 50%, #000000b3);
+  background: rgba(0, 0, 0.6) 50% !important;
+}
+.homePage, .create-movie {
+  background: linear-gradient(to bottom, rgba(0, 0, 0.6) 10%, #807f7fb3) !important;
 }
 /* Movie Card */
 .movieList {
@@ -192,8 +195,6 @@ h4 {
   flex-direction: row !important;
   justify-content: space-evenly !important;
   flex-wrap: wrap !important;
-  width: 100vw;
-  height: 99vw;
 }
 
 /* END SEARCH PAGE */
@@ -243,7 +244,6 @@ p {
   color: #f8f9fa;
   font-size: 1.2rem;
   margin-top: 5rem;
-  height: 100vw;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -464,6 +464,7 @@ h4 {
   margin-top: 5rem;
   text-align: center;
   color: #f8f9fa;
+  padding-bottom: 20px;
 }
 /*  */
 

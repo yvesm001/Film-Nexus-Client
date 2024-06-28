@@ -3,7 +3,7 @@ import CreateForm from '../components/CreateForm'
 
 export default function CreateMoviePage() {
   return (
-    <div>
+    <div className='create-movie'>
       <CreateForm />
     </div>
   )
