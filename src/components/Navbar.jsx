@@ -11,7 +11,7 @@ function Navbar() {
       <nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
         <div className="container-fluid">
           <NavLink className="navbar-brand" to="/">
-            Film Nexsus
+            Film Nexus
           </NavLink>
           <button
             className="navbar-toggler"
